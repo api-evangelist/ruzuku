@@ -1,0 +1,126 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Ruzuku
+providerId: ruzuku
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- Online Courses
+- Course Platform
+- Plans
+description: >-
+  Ruzuku is priced as a course-platform subscription, not as a metered API
+  product. There are three published tiers - a Free plan capped at 5 students,
+  Core at 99 USD per month (or 997 USD per year), and Pro at 199 USD per month
+  (or 1997 USD per year). Zapier integration access (API Key and API Secret) is
+  a feature of the account rather than a separately metered API plan, so no
+  per-call API pricing exists. All plans advertise unlimited courses, unlimited
+  videos, and zero transaction fees on course sales.
+notes: >-
+  Prices captured from the public Ruzuku pricing page in July 2026 and should be
+  re-verified on reconciliation. There is no separate developer or API pricing;
+  the Zapier connector is included with the subscription. Older reviews list the
+  same tiers under the legacy names Bootstrapper, Up-and-Comer, and University.
+sources:
+- https://www.ruzuku.com/pricing
+- https://courses.ruzuku.com/pricing-plans
+plans:
+- id: ruzuku-free
+  name: Free
+  type: free
+  description: >-
+    Entry tier capped at 5 students. Includes unlimited courses, unlimited videos
+    up to 2 GB each, live meetings and video conferences, online community and
+    discussions, sales pages and payments, and tech support.
+  entries:
+  - label: Included Students
+    name: free_students
+    type: usage
+    metric: students
+    limit: 5
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '0'
+    userMultiplied: false
+  elements:
+  - name: Unlimited Courses
+  - name: Live Meetings and Video Conferences
+  - name: Online Community and Discussions
+  - name: Sales Pages and Payments
+  - name: Zero Transaction Fees
+- id: ruzuku-core
+  name: Core
+  type: subscription
+  description: >-
+    Unlimited students and courses, unlimited videos up to 2 GB each, live
+    meetings, unlimited course invitations, online community, sales pages and
+    payments, and creator plus student tech support. Billed 99 USD monthly or
+    997 USD annually.
+  entries:
+  - label: Monthly Subscription
+    name: core_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '99'
+    userMultiplied: false
+  - label: Annual Subscription
+    name: core_annual
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: '997'
+    userMultiplied: false
+  elements:
+  - name: Unlimited Students
+  - name: Unlimited Courses
+  - name: Zero Transaction Fees
+  - name: Zapier Integration (API Key and Secret)
+- id: ruzuku-pro
+  name: Pro
+  type: subscription
+  description: >-
+    Everything in Core plus white-label branding and custom domain, multiple
+    instructor accounts, certificates of completion, a public marketing
+    storefront, digital product sales, AI video transcription and captions, up to
+    4K streaming, and videos up to 4 GB each. Billed 199 USD monthly or 1997 USD
+    annually.
+  entries:
+  - label: Monthly Subscription
+    name: pro_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '199'
+    userMultiplied: false
+  - label: Annual Subscription
+    name: pro_annual
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: '1997'
+    userMultiplied: false
+  elements:
+  - name: White-Label Branding and Custom Domain
+  - name: Multiple Instructor Accounts
+  - name: Certificates of Completion
+  - name: Public Marketing Storefront
+  - name: Zapier Integration (API Key and Secret)
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

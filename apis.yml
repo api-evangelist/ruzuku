@@ -1,0 +1,86 @@
+aid: ruzuku
+url: https://raw.githubusercontent.com/api-evangelist/ruzuku/refs/heads/main/apis.yml
+name: Ruzuku
+kind: company
+description: >-
+  Ruzuku is a hosted online course platform for coaches, authors, and subject
+  matter experts to create, teach, and sell online courses and learning
+  communities. Ruzuku does not publish a documented public REST API or
+  developer program. Its programmatic surface is exposed exclusively through a
+  Zapier integration - authenticated with an API Key, API Secret, and Site URL
+  generated under Account then Integrations then Configure Zapier - that offers
+  event triggers (enrollments, lesson and course completions, quiz and
+  assignment submissions, comments, cancellations) and a small set of student
+  enroll, unenroll, and lookup actions. The APIs modeled below are honest
+  logical groupings of that Zapier-mediated surface, not endpoints from a public
+  Ruzuku API reference.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Online Courses
+- Learning Management
+- Education
+- Course Platform
+- Zapier
+- Gated
+created: '2026-07-05'
+modified: '2026-07-05'
+specificationVersion: '0.19'
+apis:
+- aid: ruzuku:ruzuku-students-enrollments-api
+  name: Ruzuku Students and Enrollments API
+  tags:
+  - Students
+  - Enrollments
+  - Zapier
+  - Gated
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://support.ruzuku.com/article/796-how-to-set-up-your-zapier-intergration
+  properties:
+  - url: https://support.ruzuku.com/article/796-how-to-set-up-your-zapier-intergration
+    type: Documentation
+  - url: https://zapier.com/apps/ruzuku/integrations
+    type: SignupURL
+  endpointsModeled: true
+  description: >-
+    Student lifecycle actions exposed through Ruzuku's Zapier integration - enroll
+    a student in a course, unenroll a student, and find a student by email or ID.
+    Authentication uses an API Key, API Secret, and Site URL generated in the
+    Ruzuku dashboard under Account then Integrations then Configure Zapier. Ruzuku
+    does not publish a direct public REST reference or base URL for these actions;
+    they are honestly modeled from the Zapier connector, not from vendor API docs.
+- aid: ruzuku:ruzuku-activity-events-api
+  name: Ruzuku Activity Events API
+  tags:
+  - Events
+  - Webhooks
+  - Triggers
+  - Zapier
+  - Gated
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://zapier.com/apps/ruzuku/integrations
+  properties:
+  - url: https://support.ruzuku.com/article/796-how-to-set-up-your-zapier-intergration
+    type: Documentation
+  - url: https://zapier.com/apps/ruzuku/integrations
+    type: SignupURL
+  endpointsModeled: true
+  description: >-
+    Course-activity event triggers surfaced through Ruzuku's Zapier integration -
+    New Student Enrolled (with pricing and coupon data), Lesson Completed, Course
+    Completed, Quiz Submitted (with score), Assignment Submitted (with answers),
+    Comment Posted, and Subscription Canceled. Each event carries student and
+    course details and many can be filtered to a specific course or lesson. These
+    are Zapier-mediated triggers, not a documented public webhook or REST API on
+    Ruzuku; the surface is modeled honestly from the connector.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/ruzuku-inc-
+- type: Website
+  url: https://www.ruzuku.com
+- type: Documentation
+  url: https://support.ruzuku.com/article/796-how-to-set-up-your-zapier-intergration
+- type: Plans
+  url: plans/ruzuku-plans-pricing.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

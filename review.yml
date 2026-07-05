@@ -1,0 +1,98 @@
+aid: ruzuku
+name: Ruzuku
+review:
+  question: Does Ruzuku expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Ruzuku publishes no documented public API
+    of any kind - REST or WebSocket. The only programmatic surface is a Zapier
+    integration whose triggers are delivered as Zapier-managed webhooks (HTTP
+    POST callbacks), not as a server-push WebSocket transport on a Ruzuku
+    endpoint. There is no ws:// or wss:// endpoint to model, and no public
+    event schema is published by Ruzuku itself.
+findings:
+  summary: |
+    Ruzuku does not publish a documented public WebSocket API, nor a public REST
+    API or developer program. Ruzuku is a hosted online course platform
+    (courses, learning communities, sales pages) for coaches and creators. Its
+    entire programmatic surface is mediated by a Zapier integration. Users
+    generate an API Key, API Secret, and Site URL under Account then Integrations
+    then Configure Zapier, and connect those in Zapier. The connector offers
+    seven event triggers and three actions. Ruzuku exposes no public API base
+    URL, no OpenAPI, no API reference, and no realtime or WebSocket endpoint.
+  openSource: |
+    Ruzuku is a closed-source commercial SaaS. There is no public source code,
+    self-hosting option, or open specification. The company (ruzuku, Inc.) is a
+    small firm (2-10 employees) founded in 2012 and headquartered in Carrboro,
+    North Carolina.
+  transports:
+    - protocol: Zapier Connector
+      scheme: https
+      documented: true
+      note: >-
+        Programmatic access is exclusively through Zapier. Auth uses an API Key,
+        API Secret, and Site URL generated in the Ruzuku dashboard. Triggers and
+        actions run inside Zapier, not against a documented Ruzuku REST base URL.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: >-
+        Trigger events are delivered as Zapier-managed webhook callbacks (HTTP
+        POST). Ruzuku does not publish a standalone webhook API or event schema
+        outside the Zapier connector.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: >-
+        No public REST API reference or base URL is published by Ruzuku. An
+        internal API clearly backs the Zapier connector (hence the API Key and
+        Secret) but it is not documented for direct developer use.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: >-
+        No WebSocket endpoint is documented anywhere in Ruzuku's product,
+        support knowledge base, or Zapier connector as of the review date.
+  endpointsModeled:
+    note: >-
+      The items below are the Zapier connector's triggers and actions, modeled
+      honestly as logical operations. They are NOT documented Ruzuku REST
+      endpoints and no public base URL exists for them.
+    triggers:
+      - New Student Enrolled (includes pricing and coupon data)
+      - Lesson Completed
+      - Course Completed
+      - Quiz Submitted (with score)
+      - Assignment Submitted (with answers)
+      - Comment Posted
+      - Subscription Canceled
+    actions:
+      - Enroll a Student
+      - Unenroll a Student
+      - Find a Student (by email or ID)
+sources:
+  - url: https://support.ruzuku.com/article/796-how-to-set-up-your-zapier-intergration
+    type: Documentation
+    note: Zapier setup - API Key, API Secret, Site URL generated under Account then Integrations then Configure Zapier.
+  - url: https://zapier.com/apps/ruzuku/integrations
+    type: SignupURL
+    note: Full list of Ruzuku Zapier triggers (7) and actions (3). No public REST or WebSocket API mentioned.
+  - url: https://www.ruzuku.com/pricing
+    type: Plans
+    note: Free, Core (99/mo), and Pro (199/mo) subscription tiers. No API or developer pricing.
+  - url: https://www.ruzuku.com/
+    type: Website
+    note: Product marketing. Integrations listed as Stripe, PayPal, Zapier, Zoom. No developer or API section.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and Ruzuku publishes no documented
+    public API at all. The only programmatic access is a Zapier integration
+    whose triggers are Zapier-managed webhook callbacks. No AsyncAPI document
+    was created because there is no server-push transport on a Ruzuku endpoint
+    to model, and Ruzuku publishes no event schema of its own. The apis.yml
+    entry models the Zapier surface honestly with endpointsModeled set to true.
