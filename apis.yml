@@ -73,6 +73,10 @@ apis:
     are Zapier-mediated triggers, not a documented public webhook or REST API on
     Ruzuku; the surface is modeled honestly from the connector.
 common:
+- type: TrustCenter
+  url: security/ruzuku-trust-center.yml
+- type: DomainSecurity
+  url: security/ruzuku-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/ruzuku-inc-
 - type: Website
