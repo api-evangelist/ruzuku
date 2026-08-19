@@ -36,7 +36,7 @@ tags:
 - Gated
 created: '2026-07-05'
 modified: '2026-07-05'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: ruzuku:ruzuku-students-enrollments-api
   name: Ruzuku Students and Enrollments API
