@@ -53,6 +53,11 @@ apis:
   name: Ruzuku Students and Enrollments API
   tags:
   - Students
+  - Enrollment
+  - Zapier
+  - Gated
+  tags_raw:
+  - Students
   - Enrollments
   - Zapier
   - Gated
