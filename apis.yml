@@ -46,7 +46,7 @@ tags:
 - Zapier
 - Gated
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: ruzuku:ruzuku-students-enrollments-api
@@ -107,6 +107,8 @@ apis:
     are Zapier-mediated triggers, not a documented public webhook or REST API on
     Ruzuku; the surface is modeled honestly from the connector.
 common:
+- url: https://www.ruzuku.com/learn/articles
+  type: Blog
 - type: TrustCenter
   url: security/ruzuku-trust-center.yml
 - type: DomainSecurity
