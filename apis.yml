@@ -40,6 +40,13 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ruzuku.png
 tags:
 - Online Courses
+- LMS
+- Education
+- Course Platform
+- Zapier
+- Gated
+tags_raw:
+- Online Courses
 - Learning Management
 - Education
 - Course Platform
