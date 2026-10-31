@@ -1,4 +1,4 @@
-# Ruzuku (ruzuku)
+# Ruzuku
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,88 +64,93 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Ruzuku is a hosted online course platform for coaches, authors, and subject matter experts to create, teach, and sell online courses and learning communities. **Ruzuku does not publish a documented public REST API or developer program.** Its only programmatic surface is a **Zapier integration**, authenticated with an API Key, API Secret, and Site URL generated in the dashboard under *Account → Integrations → Configure Zapier*. The APIs described below are honest logical groupings of that Zapier-mediated surface — they are modeled from the Zapier connector, not from a public Ruzuku API reference, and no public API base URL exists.
+Ruzuku is a hosted online course platform for coaches, authors, and subject matter experts to create, teach, and sell online courses and learning communities. Ruzuku does not publish a documented public REST API or developer program. Its programmatic surface is exposed exclusively through a Zapier integration - authenticated with an API Key, API Secret, and Site URL generated under Account then Integrations then Configure Zapier - that offers event triggers (enrollments, lesson and course completions, quiz and assignment submissions, comments, cancellations) and a small set of student enroll, unenroll, and lookup actions. The APIs modeled below are honest logical groupings of that Zapier-mediated surface, not endpoints from a public Ruzuku API reference.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/ruzuku/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/ruzuku/refs/heads/main/apis.yml)
+**Areas:** Online Courses · LMS · Education · Course Platform · Zapier · Gated
 
-## Access Model
+## Ruzuku on APIs.io
 
-- **No public REST API.** Ruzuku publishes no API reference, no OpenAPI, and no developer portal.
-- **Zapier only.** Programmatic access runs entirely through Zapier. You generate an API Key + API Secret + Site URL in Ruzuku and connect them in Zapier.
-- **No WebSocket / realtime API.** Trigger events are delivered as Zapier-managed webhook callbacks, not a server-push transport on a Ruzuku endpoint.
-- **`endpointsModeled: true`.** The operations listed here are the Zapier connector's triggers and actions, modeled as logical operations — not documented Ruzuku endpoints.
+Everything profiled for Ruzuku is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ruzuku/](https://apis.io/providers/ruzuku/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- Online Courses
-- Learning Management
-- Education
-- Course Platform
-- Zapier
-- Gated
+- [Ruzuku Students and Enrollments API](https://apis.io/apis/ruzuku/ruzuku-students-enrollments-api/) — Student lifecycle actions exposed through Ruzuku's Zapier integration - enroll a student in a course, unenroll a student, and find a student by email or ID.…
+- [Ruzuku Activity Events API](https://apis.io/apis/ruzuku/ruzuku-activity-events-api/) — Course-activity event triggers surfaced through Ruzuku's Zapier integration - New Student Enrolled (with pricing and coupon data), Lesson Completed, Course…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-05
-- **Modified:** 2026-07-05
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (2)
 
-### Ruzuku Students and Enrollments API
+Authentication, trust centre, and vulnerability disclosure.
 
-Student lifecycle actions exposed through Ruzuku's Zapier integration — **Enroll a Student**, **Unenroll a Student**, and **Find a Student** (by email or ID). Authenticated with the API Key, API Secret, and Site URL generated under *Account → Integrations → Configure Zapier*. No direct public REST base URL is published; the surface is modeled from the Zapier connector.
+- [Ruzuku Domain Security](https://apis.io/security/ruzuku/ruzuku-domain-security/)
+- [Ruzuku Trust Center](https://apis.io/security/ruzuku/ruzuku-trust-center/)
 
-- **Human URL:** [https://support.ruzuku.com/article/796-how-to-set-up-your-zapier-intergration](https://support.ruzuku.com/article/796-how-to-set-up-your-zapier-intergration)
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- Students
-- Enrollments
-- Zapier
-- Gated
+- [Ruzuku Plans Pricing](https://apis.io/plans/ruzuku/ruzuku-plans-pricing/)
 
-### Ruzuku Activity Events API
+## Where to find this API
 
-Course-activity event triggers surfaced through Ruzuku's Zapier integration:
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **New Student Enrolled** (includes pricing and coupon data)
-- **Lesson Completed**
-- **Course Completed**
-- **Quiz Submitted** (with score)
-- **Assignment Submitted** (with answers)
-- **Comment Posted**
-- **Subscription Canceled**
-
-Each event carries student and course details, and many can be filtered to a specific course or lesson. These are Zapier-mediated triggers (Zapier-managed webhook callbacks), not a documented public webhook or REST API on Ruzuku.
-
-- **Human URL:** [https://zapier.com/apps/ruzuku/integrations](https://zapier.com/apps/ruzuku/integrations)
-
-#### Tags
-
-- Events
-- Webhooks
-- Triggers
-- Zapier
-- Gated
-
-## Plans
-
-Ruzuku is priced as a course-platform subscription, not a metered API product. Zapier access is a feature of the account, not a separately priced API plan.
-
-- **Free** — $0/month, capped at 5 students
-- **Core** — $99/month (or $997/year)
-- **Pro** — $199/month (or $1,997/year)
-
-See [plans/ruzuku-plans-pricing.yml](plans/ruzuku-plans-pricing.yml). All plans advertise unlimited courses, unlimited videos, and zero transaction fees.
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/ruzuku-inc-)
 - [Website](https://www.ruzuku.com)
 - [Documentation](https://support.ruzuku.com/article/796-how-to-set-up-your-zapier-intergration)
-- [Plans](plans/ruzuku-plans-pricing.yml)
+- [Blog](https://www.ruzuku.com/learn/articles)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 10.1** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 15.8 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ruzuku/](https://apis.io/providers/ruzuku/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ruzuku: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ruzuku/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
